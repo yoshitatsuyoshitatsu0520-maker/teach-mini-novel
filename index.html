@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ファンサイト限定ミニストーリー</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div id="title-screen" class="game-screen">
+
+        <div id="character-layer"></div>
+
+
+        <!-- 左側：キャラクター -->
+
+        <div class="title-character">
+
+            <img
+                src="assets/title/character.png"
+                alt=""
+            >
+
+        </div>
+
+
+
+        <!-- 右側：タイトル・メニュー -->
+
+        <div class="title-content">
+
+
+            <h1 class="game-title">
+
+                俺達のファンサイト！？
+
+            </h1>
+
+
+
+            <nav class="title-menu">
+
+    <button
+        onclick="playSelectSE(); startGame()"
+    >
+        はじめから
+    </button>
+
+    <button
+        onclick="playSelectSE(); showMessage('特に意味の無いボタンですｗ')"
+    >
+        つづきから
+    </button>
+
+    <button
+        onclick="playSelectSE(); showMessage('特に意味の無いボタンですｗ')"
+    >
+        設定
+    </button>
+
+</nav>
+
+        </div>
+
+
+
+        <!-- コピーライト -->
+
+        <p class="copyright">
+
+            原作『ねこのティーチくん』 © おやさい鬼9
+            <br>
+            Fan Game © 伊藤ロドリゲス
+
+        </p>
+
+
+
+        <!-- BGM -->
+
+        <audio id="title-bgm" loop>
+
+            <source
+                src="assets/bgm/fukakukuraiido.mp3"
+                type="audio/mpeg"
+            >
+
+        </audio>
+
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

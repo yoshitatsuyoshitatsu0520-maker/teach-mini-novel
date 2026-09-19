@@ -1,0 +1,1033 @@
+/* =================================
+   全体
+================================= */
+
+
+@font-face {
+
+    font-family:
+        "MyTitleFont";
+
+    src:
+        url(
+            "assets/fonts/ShipporiMincho-Regular.ttf"
+        )
+        format("truetype");
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    margin: 0;
+
+}
+
+
+body {
+
+    background: #111;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    overflow: hidden;
+
+}
+
+
+
+/* =================================
+   共通ゲーム画面
+================================= */
+
+
+.game-screen {
+
+    position: relative;
+
+    width:
+        min(1200px, 94vw);
+
+    aspect-ratio:
+        16 / 9;
+
+    overflow: hidden;
+
+}
+
+
+
+/* =================================
+   タイトル背景
+================================= */
+
+
+#title-screen {
+
+    background-image:
+        url(
+            "assets/backgrounds/background.png"
+        );
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+
+/* =================================
+   タイトルコンテンツ
+================================= */
+
+
+.title-content {
+
+    position: absolute;
+
+    z-index: 3;
+
+    right: 4%;
+
+    top: 5%;
+
+    width: 50%;
+
+    height: 90%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+
+/* =================================
+   タイトル
+================================= */
+
+
+.game-title {
+
+    position: relative;
+
+    font-family:
+        "MyTitleFont",
+        serif;
+
+    font-size:
+        clamp(40px, 6vw, 90px);
+
+    line-height: 0.9;
+
+    text-align: center;
+
+    letter-spacing: 0.05em;
+
+
+    background:
+        linear-gradient(
+            to bottom,
+            #FFFFFF 0%,
+            #EAF8FF 45%,
+            #8FD8FF 100%
+        );
+
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color:
+        transparent;
+
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(30, 70, 120, 0.8)
+        );
+
+}
+
+
+
+/* =================================
+   メニュー
+================================= */
+
+
+.title-menu {
+
+    margin-top: auto;
+
+    margin-bottom: 15%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.title-menu button {
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:
+        clamp(24px, 3vw, 48px);
+
+    cursor: pointer;
+
+    padding:
+        4px 25px;
+
+    text-shadow:
+        3px 3px 0 #000;
+
+    transition:
+        transform 0.15s,
+        color 0.15s,
+        text-shadow 0.15s;
+
+}
+
+
+.title-menu button:hover {
+
+    transform:
+        scale(1.08);
+
+    color:
+        #FF0000;
+
+    text-shadow:
+        3px 3px 0 #000,
+        0 0 10px
+        rgba(180, 230, 255, 0.8);
+
+}
+
+
+
+/* =================================
+   コピーライト
+================================= */
+
+
+.copyright {
+
+    position: absolute;
+
+    z-index: 4;
+
+    bottom: 12px;
+
+    right: 20px;
+
+    margin: 0;
+
+    color: white;
+
+    font-family: sans-serif;
+
+    font-size: 12px;
+
+    opacity: 0.7;
+
+}
+
+
+
+/* =================================
+   ストーリー背景
+================================= */
+
+
+#story-screen {
+
+    background-image:
+        url(
+            "assets/backgrounds/kuro.png"
+        );
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+
+/* =================================
+   ナレーション
+================================= */
+
+
+#narration-box {
+
+    position: absolute;
+
+    left: 5%;
+
+    right: 5%;
+
+    bottom: 5%;
+
+    min-height: 200px;
+
+    padding:
+        25px 35px;
+
+    background:
+        rgba(8, 20, 38, 0.7);
+
+    border:
+        2px solid
+        rgba(70, 120, 165, 0.7);
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        0 0 15px
+        rgba(10, 30, 60, 0.8);
+
+    opacity:
+        0;
+
+    animation:
+        narrationAppear
+        0.8s ease
+        0.5s forwards;
+
+     z-index: 5;
+
+}
+
+
+@keyframes narrationAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* =================================
+   ナレーション本文
+================================= */
+
+
+#narration-text {
+
+    margin: 0;
+
+    color:
+        #EAF7FF;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:
+        clamp(18px, 2vw, 30px);
+
+    line-height:
+        1.8;
+
+    text-shadow:
+        2px 2px 0 #101522;
+
+    white-space:
+        pre-wrap;
+
+}
+
+
+
+/* =================================
+   選択肢
+================================= */
+
+
+#choices {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 40%;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    z-index: 10;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease;
+
+}
+
+
+
+.choice-button {
+
+    min-width: 400px;
+
+    padding:
+        15px 30px;
+
+    background:
+        rgba(8, 20, 38, 0.96);
+
+    border:
+        2px solid
+        rgba(70, 120, 165, 0.8);
+
+    border-radius:
+        6px;
+
+    color:
+        #EAF7FF;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:
+        24px;
+
+    cursor:
+        pointer;
+
+    text-shadow:
+        2px 2px 0 #101522;
+
+    transition:
+        transform 0.15s,
+        background 0.15s,
+        color 0.15s;
+
+}
+
+
+.choice-button:hover {
+
+    transform:
+        scale(1.05);
+
+    background:
+        rgba(25, 55, 90, 0.98);
+
+    color:
+        #FFFFFF;
+
+}
+
+/* =================================
+   キャラクター
+================================= */
+/* =================================
+   キャラクター
+================================= */
+
+#character-layer {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.story-character {
+
+    position: absolute;
+
+    bottom: -18%;
+
+    transform: translateX(-50%);
+
+    max-width: 45%;
+    max-height: 115%;
+
+    z-index: 2;
+
+    object-fit: contain;
+
+    opacity: 1;
+
+    filter:
+        drop-shadow(
+            5px 5px 8px
+            rgba(0, 0, 0, 0.5)
+        );
+}
+
+
+/* =================================
+   新しく登場したキャラクター
+================================= */
+
+.story-character.fade-in {
+
+    opacity: 0;
+
+    animation:
+        characterFadeIn
+        0.5s ease forwards;
+}
+
+
+/* =================================
+   キャラクターフェードイン
+================================= */
+
+@keyframes characterFadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+#speaker-name {
+
+    display: none;
+
+    position: absolute;
+
+    left: 30px;
+    top: -48px;       /* ← 少し上 */
+
+    min-width: 160px; /* ← 少し小さく */
+
+    padding: 8px 28px; /* ← 少し小さく */
+
+    background:
+        rgba(20, 50, 80, 0.95);
+
+    border:
+        2px solid
+        #8FD8FF;
+
+    border-radius:
+        7px 7px 0 0;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size:
+        25px;         /* ← 28px → 25px */
+
+    font-weight:
+        bold;
+
+    text-align:
+        center;
+
+    text-shadow:
+        2px 2px 0 #101522;
+
+    box-shadow:
+        0 0 10px
+        rgba(50, 120, 180, 0.5);
+}
+
+.story-character.shake {
+    animation: characterShake 0.45s ease;
+}
+
+@keyframes characterShake {
+
+    0% {
+        transform: translateX(-50%) translateX(0);
+    }
+
+    10% {
+        transform: translateX(-50%) translateX(-18px);
+    }
+
+    20% {
+        transform: translateX(-50%) translateX(18px);
+    }
+
+    30% {
+        transform: translateX(-50%) translateX(-16px);
+    }
+
+    40% {
+        transform: translateX(-50%) translateX(16px);
+    }
+
+    50% {
+        transform: translateX(-50%) translateX(-13px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateX(13px);
+    }
+
+    70% {
+        transform: translateX(-50%) translateX(-10px);
+    }
+
+    80% {
+        transform: translateX(-50%) translateX(10px);
+    }
+
+    90% {
+        transform: translateX(-50%) translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateX(0);
+    }
+
+}
+
+/* =================================
+   キャラクター縦振動
+================================= */
+
+.story-character.shake-vertical {
+    animation: characterShakeVertical 0.12s ease-in-out infinite;
+}
+
+@keyframes characterShakeVertical {
+
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+}
+
+/* =================================
+   右上ゲームメニュー
+================================= */
+
+#game-menu {
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+
+    gap: 10px;
+
+    z-index: 20;
+
+}
+
+
+/* =================================
+   メニューボタン
+================================= */
+
+#game-menu button {
+
+    padding: 8px 16px;
+
+    background:
+        rgba(8, 20, 38, 0.75);
+
+    border:
+        1px solid
+        rgba(180, 220, 255, 0.6);
+
+    border-radius: 5px;
+
+    color: white;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    text-shadow:
+        1px 1px 0 #000;
+
+    transition:
+        background 0.15s,
+        transform 0.15s;
+
+}
+
+
+/* マウスを乗せたとき */
+
+#game-menu button:hover {
+
+    background:
+        rgba(40, 80, 120, 0.9);
+
+    transform:
+        scale(1.05);
+
+}
+
+/* =================================
+   右上メニュー
+================================= */
+
+#story-menu {
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+
+    gap: 10px;
+
+    z-index: 20;
+
+}
+
+
+/* ボタン */
+
+#story-menu button {
+
+    padding: 8px 16px;
+
+    background:
+        rgba(8, 20, 38, 0.85);
+
+    border:
+        1px solid
+        rgba(150, 190, 220, 0.7);
+
+    border-radius: 5px;
+
+    color: white;
+
+    font-family:
+        "Yu Mincho",
+        serif;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        transform 0.15s;
+
+}
+
+
+#story-menu button:hover {
+
+    background:
+        rgba(40, 70, 100, 0.95);
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* =================================
+   メニューウィンドウ
+================================= */
+
+.menu-window {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 30;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+}
+
+
+/* =================================
+   ウィンドウ本体
+================================= */
+
+.menu-window-inner {
+
+    position: relative;
+
+    width: 70%;
+    max-height: 75%;
+
+    padding: 30px;
+
+    background:
+        rgba(8, 20, 38, 0.97);
+
+    border:
+        2px solid
+        rgba(100, 150, 190, 0.8);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 30px
+        rgba(0, 0, 0, 0.8);
+
+    color: white;
+
+}
+
+
+/* タイトル */
+
+.menu-window-inner h2 {
+
+    margin-top: 0;
+
+    text-align: center;
+
+    font-family:
+        "Yu Mincho",
+        serif;
+
+}
+
+
+/* =================================
+   閉じるボタン
+================================= */
+
+.close-button {
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+.close-button:hover {
+
+    color: #ff8888;
+
+}
+
+
+/* =================================
+   ログ
+================================= */
+
+#log-content {
+
+    max-height: 400px;
+
+    overflow-y: auto;
+
+    padding: 10px;
+
+}
+
+
+.log-entry {
+
+    padding: 10px 5px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    line-height: 1.6;
+
+}
+
+
+.log-name {
+
+    font-weight: bold;
+
+    color: #9fd8ff;
+
+    margin-right: 8px;
+
+}
+
+
+/* =================================
+   セーブスロット
+================================= */
+
+.save-slots {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.save-slot {
+
+    padding: 18px;
+
+    background:
+        rgba(20, 40, 65, 0.9);
+
+    border:
+        1px solid
+        rgba(120, 170, 210, 0.7);
+
+    border-radius: 6px;
+
+    color: white;
+
+    font-family:
+        "Yu Mincho",
+        serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+}
+
+
+.save-slot:hover {
+
+    background:
+        rgba(40, 70, 100, 0.95);
+
+}
+
+.save-thumbnail {
+
+    width: 240px;
+    height: 135px;
+
+    object-fit: cover;
+
+    display: block;
+
+    margin: 10px auto;
+
+    background: #111;
+
+    border: 1px solid #555;
+
+}

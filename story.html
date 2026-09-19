@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>俺達のファンサイト！？</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body>
+
+    <div
+        id="story-screen"
+        class="game-screen">
+
+        <!-- =================================
+     右上メニュー
+================================= -->
+<!-- =================================
+     右上メニュー
+================================= -->
+
+<div id="story-menu">
+
+    <button id="log-button">
+        ログ
+    </button>
+
+    
+
+</div>
+
+
+<!-- =================================
+     ログ画面
+================================= -->
+
+<div id="log-window" class="menu-window">
+
+    <div class="menu-window-inner">
+
+        <button class="close-button" id="log-close">
+            ×
+        </button>
+
+        <h2>ログ</h2>
+
+        <div id="log-content">
+        </div>
+
+    </div>
+
+</div>
+
+<audio id="story-bgm" loop></audio>
+
+        <!-- キャラクター -->
+        <div
+            id="character-layer">
+        </div>
+
+
+        <!-- ナレーション -->
+        <div id="narration-box">
+
+    <div id="speaker-name"></div>
+
+    <p id="narration-text"></p>
+
+</div>
+
+
+        <!-- 選択肢 -->
+        <div
+            id="choices">
+        </div>
+
+
+    </div>
+
+
+    <script
+        src="js/scenario.js">
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script
+        src="js/script.js">
+    </script>
+
+</body>
+
+</html>
