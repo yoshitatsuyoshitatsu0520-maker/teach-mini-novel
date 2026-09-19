@@ -1,7 +1,43 @@
 /* =================================
    全体
 ================================= */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    color: white;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+}
+
+.loading-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.loading-bar {
+    width: 300px;
+    height: 12px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#loading-progress {
+    width: 0%;
+    height: 100%;
+    background: white;
+    transition: width 0.2s;
+}
+
+#loading-text {
+    margin-top: 10px;
+}
 
 @font-face {
 

@@ -1,7 +1,91 @@
 // =================================
 // タイトル画面
 // =================================
+async function loadGame() {
 
+    const loadingScreen =
+        document.getElementById("loading-screen");
+
+    const progress =
+        document.getElementById("loading-progress");
+
+    const loadingText =
+        document.getElementById("loading-text");
+
+
+    const images = [
+        "assets/characters/kobayashi.png",
+        "assets/characters/kobayashi1.png",
+        "assets/characters/kobayashi2.png",
+
+        "assets/characters/teach0.png",
+        "assets/characters/teach1.png",
+        "assets/characters/teach2.png",
+        "assets/characters/teach3.png",
+
+        "assets/characters/sam.png",
+        "assets/characters/sam1.png",
+        "assets/characters/sam2.png"
+    ];
+
+
+    for (
+        let i = 0;
+        i < images.length;
+        i++
+    ) {
+
+        await new Promise(resolve => {
+
+            const img =
+                new Image();
+
+            img.onload = resolve;
+            img.onerror = resolve;
+
+            img.src = images[i];
+
+        });
+
+
+        const percent =
+            Math.round(
+                ((i + 1) / images.length) * 100
+            );
+
+        progress.style.width =
+            percent + "%";
+
+        loadingText.textContent =
+            percent + "%";
+
+    }
+
+
+    // 読み込み完了
+    await new Promise(resolve =>
+        setTimeout(resolve, 300)
+    );
+
+
+    loadingScreen.style.opacity =
+        "0";
+
+    loadingScreen.style.transition =
+        "opacity 0.5s";
+
+
+    setTimeout(() => {
+
+        loadingScreen.style.display =
+            "none";
+
+    }, 500);
+
+}
+
+
+loadGame();
 const titleBgm =
     document.getElementById("title-bgm");
 
