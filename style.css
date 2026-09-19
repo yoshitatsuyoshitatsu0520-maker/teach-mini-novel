@@ -1067,3 +1067,31 @@ body {
     border: 1px solid #555;
 
 }
+
+/* =========================================
+   スマホ用 吹き出し調整
+========================================= */
+
+@media (max-width: 600px) {
+
+    .dialogue-box {
+        left: 4%;
+        right: 4%;
+        bottom: 8%;
+
+        padding: 12px 16px;
+
+        border-radius: 14px;
+    }
+
+    .speaker-name {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .dialogue-text {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+}
